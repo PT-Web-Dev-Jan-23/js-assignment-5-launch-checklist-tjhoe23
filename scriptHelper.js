@@ -35,7 +35,16 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let cargoStatus = document.getElementById('cargoStatus');
 
     if (validateInput(pilot) === `Empty` || validateInput(copilot) === `Empty` || validateInput(fuelLevel) === `Empty` || validateInput(cargoLevel) === `Empty`) {
-        alert(`Please fill out all of the fields`)
+        alert(`Please fill out all of the fields`);
+
+    } else if (validateInput(pilot) === `Is a Number` || validateInput(copilot) === `Is a Number`) {
+        alert(`Please enter a valid name for pilot or copilot`)
+    } else if (validateInput(fuelLevel) === `Not a Number` || validateInput(cargoLevel) === `Not a number`) {
+        alert(`Please enter a valid number for Fuel Level and Cargo Mass`);
+    } else {
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready`;
+        copilotStatus.innerHTML = `Copilot ${copilot} is ready`;
+        
     }
 
 
